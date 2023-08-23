@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cevejas</title>
+</head>
+<body>
+
+    <div id="cervejas">
+        Carregando cervejas...
+    </div>        
+    <div class="but"><button id="botaoCarregar">Segue as cervejas</button></div>
+
+ </body>
+
+ <style>
+    #cervejas{
+        opacity: 0;
+        transition: opacity 0.5s;
+    }
+
+    .beer{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        border: 1px solid black;
+    }
+
+    .but{
+        text-decoration: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background: #B9DFFF;
+        color: #fff;
+        border: 1px solid #eee;
+        border-radius: 20px;
+        box-shadow: 5px 5px 5px #eee;
+        text-shadow: none;
+    }
+
+    .but:hover{
+        background: #016ABC;
+        color: #fff;
+        border: 1px solid #eee;
+        border-radius: 20px;
+        box-shadow: 5px 5px 5px #eee;
+        text-shadow: none;
+    }
+
+ </style>
+
+ <script>
+
+    var divDisplay = "none"
+
+    function carregarDiv(){
+
+        var opacity = Number(cervejas.style.opacity);
+        console.log(opacity);
+
+        var div = document.getElementById("cervejas")
+
+        div.innerHTML = `<h1 class= "beer">Spaten</h1>`
+
+        if (opacity  === 0){
+            div.style.opacity = '1';
+        }
+        else{
+            div.style.opacity = '0';
+        }
+
+    }
+
+    
+
+    let botao = document.getElementById("botaoCarregar")
+
+    botao.addEventListener("click", carregarDiv)                 
+
+ </script>
+</html>
