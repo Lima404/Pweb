@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>   
+   <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReceitaJason</title>
+    <link rel="stylesheet" href="style.css">  
+   </head>
+
+   <body>
+
+      <div class="itens">
+         <div class="but">
+            <a href="#" onclick="carregarlivros(livros)">Carregando Livros...</a>
+         </div>
+         <div id="livros"></div>
+      </div>    
+
+   </body>   
+
+   <script>
+
+      let livros = ["48 leis do poder", "O principe", "Assim falou zatrusta"]
+
+      //function carregar(){      
+
+      const carregarlivros = (livros) => {
+         const div = document.getElementById("livros")
+         const livrosHtml = livros.map( item => `<h1>${item}</h1>` ) 
+         div.innerHTML = `${livrosHtml.join("\n")}`
+      }
+
+      let botao = document.getElementById("botaoCarregar")
+      botao.addEventListener("click", carregarDiv)                 
+
+   </script>
+
+</html>
