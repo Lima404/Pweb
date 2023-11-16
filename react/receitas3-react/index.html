@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>React 3</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="app" ></div>
+        <script src="../libs/react.js" ></script>
+        <script src="../libs/react-dom.js" ></script>
+        <script src="../libs/babel.js" ></script>
+
+        <script type="text/babel">
+                                    //(prop)
+            const TabelaBebidas = ({titulo,cabecalho}) => {
+                            // {prop.titulo}
+                return(
+                    <div>
+                        <h1>{titulo}</h1>   
+                        <table  id="tabela" border="1" >
+                            <thead>
+                                <tr>                                    
+                                        {valoresCabecalho.map((item, index) => (
+                                            <th i={index}>{item}</th>))
+                                        }                                                                    
+                                </tr>    
+                            </thead>
+                            <tbody>
+                                {valoresBody.map((row, rowIndex) => (
+                                    <tr key={rowIndex}>
+                                    {valoresCabecalho.map((key, columnIndex) => (
+                                        <td key={columnIndex}>{row[key]}</td>
+                                    ))}
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table> 
+                    </div>
+                )
+            }
+
+            const valoresCabecalho = ["Nome","Marca","IBU","Nacionalidade"]
+            const valoresBody = [
+                {
+                    "Nome":"testeNome",
+                    "Marca":"testeMarca",
+                    "IBU":"testeIbu",
+                    "Nacionalidade":"testeNacionalidade"
+                },
+                {
+                    "Nome":"testeNome1",
+                    "Marca":"testeMarca1",
+                    "IBU":"testeIbu1",
+                    "Nacionalidade":"testeNacionalidade1"
+                },
+            ]
+
+            ReactDOM.render(
+                <TabelaBebidas titulo="Tabela de Bebidas" cabecalho={valoresCabecalho}/>,
+                document.getElementById("app")
+            )
+
+        </script>
+
+    </body>
+</html>
